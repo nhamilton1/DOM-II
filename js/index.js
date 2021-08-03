@@ -196,6 +196,15 @@ for (const dropZone of document.querySelectorAll('.drop-zone')) {
 }
 
 
+
+//preventDefault()
+const navPrevent = document.querySelector('nav')
+console.log('this is the nav prevent -->',navPrevent) 
+
+navPrevent.addEventListener('click', function (event) {
+    event.preventDefault();
+})
+
 //Trying out stopPropagation
 const box = document.querySelector('.destination')
 const myBtn = document.querySelector('.btn')
