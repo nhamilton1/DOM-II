@@ -22,7 +22,12 @@
 
   <header class="main-navigation">
     <div class="container nav-container">
-      <h1 class="logo-heading">Fun Bus</h1>
+      <h1 id="testingDrag" class="logo-heading" draggable="true">Fun Bus</h1>
+      <div class='drop-zone' style="border-color: red">
+        <div id='myDraggableElement' draggable="true"></div>
+      </div>
+      <div class="drop-zone" style="border-color: royalblue"></div>
+      <div class="drop-zone" style="border-color: green"></div>
       <nav class="nav">
         <a class="nav-link" href="#">Home</a>
         <a class="nav-link" href="#">About Us</a>
@@ -54,7 +59,7 @@
     </section>
     <section class="content-section inverse-content">
       <div class="img-content">
-        <img src="img/fun.jpg" class="img-fluid rounded" alt="Lets have fun!">
+        <img src="img/fun.jpg" class="img-fluid rounded" alt="Lets have fun!" draggable="true">
       </div>
       <div class="text-content">
         <h2>Adventure Awaits</h2>
@@ -107,7 +112,6 @@
   <footer class="footer">
     <p>Copyright Fun Bus 2020</p>
   </footer>
-
 </body>
 
 </html>

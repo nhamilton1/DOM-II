@@ -1,7 +1,5 @@
 // Your code goes here
 
-const { compareDesc } = require("date-fns")
-
 //LOGO TEXT CHANGER
 const logoHead = document.querySelector('.logo-heading')
 
@@ -104,34 +102,96 @@ window.addEventListener('load', (event) => {
 
 
 
-// Implementing select
-
-const footerSelect = document.createElement('p')
-document.querySelector('.footer').appendChild(footerSelect)
-footerSelect.classList.add('select')
-console.log(footerSelect)
-
-function logSelection(event) {
-    const select = document.querySelector('select');
-    const selection = event.target.input.substring(event.target.selectionStart, event.target.selectionEnd);
-    select.textContent = `You selected: ${selection}`
-    footerSelect.textContent = `You selected: ${selection}`
-}
-
-const input = document.querySelector('.footer p')
-console.log(input)
-footerSelect.addEventListener('select', logSelection)
-
 
 
 
 // Change event
+
+const footerChange = document.createElement('p')
+document.querySelector('.footer').appendChild(footerChange)
+footerChange.classList.add('change')
+console.log(footerChange)
+
+
 const selectEle = document.querySelector('.vacation');
 console.log(selectEle)
 
 function changeFunc(event) {
-    const select = document.querySelector('.select');
+    const select = document.querySelector('.change');
     select.textContent = `You picked a ${event.target.value}!!`;
 }
 
 selectEle.addEventListener('change', changeFunc)
+
+
+
+// Implementing select
+
+// const footerSelect = document.createElement('p')
+// document.querySelector('.footer').appendChild(footerSelect)
+// footerSelect.classList.add('log')
+// console.log(footerSelect)
+
+
+// function logSelection(event) {
+//     const log = document.querySelector('log');
+//     const selection = event.target.value.substring(event.target.selectionStart, event.target.selectionEnd);
+//     log.textContent = `You selected: ${selection}`
+// }
+
+// const textarea  = document.querySelector('div')
+// textarea .onselect = logSelection;
+
+
+
+const draggableElement = document.querySelector('#myDraggableElement');
+
+draggableElement.addEventListener('dragstart', event => {
+    event.dataTransfer.setData('text/plain', draggableElement.id);
+})
+
+for (const dropZone of document.querySelectorAll('.drop-zone')) {
+    //When draggable element is over a drop zone
+    dropZone.addEventListener('dragover', event => {
+        event.preventDefault();
+        console.log('dcode')
+    });
+
+    // When draggable element is dropped onto drop zone 
+    dropZone.addEventListener('drop', event => {
+        event.preventDefault();
+
+        const droppedElementId = event.dataTransfer.getData('text/plain');
+        console.log(droppedElementId)
+        const droppedElement = document.getElementById(droppedElementId);
+        console.log(droppedElement)
+        dropZone.appendChild(droppedElement);
+        
+    })
+}
+
+const newDraggableElement = document.querySelector('#testingDrag')
+
+newDraggableElement.addEventListener('dragstart', event => {
+    event.dataTransfer.setData('text/plain', newDraggableElement.id);
+})
+
+for (const dropZone of document.querySelectorAll('.drop-zone')) {
+    //When draggable element is over a drop zone
+    dropZone.addEventListener('dragover', event => {
+        event.preventDefault();
+        console.log('dcode')
+    });
+
+    // When draggable element is dropped onto drop zone 
+    dropZone.addEventListener('drop', event => {
+        event.preventDefault();
+
+        const droppedElementId = event.dataTransfer.getData('text/plain');
+        console.log(droppedElementId)
+        const droppedElement = document.getElementById(droppedElementId);
+        console.log(droppedElement)
+        dropZone.appendChild(droppedElement);
+        
+    })
+}
