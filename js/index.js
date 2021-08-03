@@ -82,3 +82,25 @@ navFocus.addEventListener('focusout', (event) => {
     event.target.style.background = '';
     event.target.style.color = ''
 })
+
+
+// Implementing Load
+
+const btnSelect = document.querySelectorAll('.btn')
+console.log(btnSelect)
+
+window.addEventListener('load', (event) => {
+    window.setTimeout(() => {
+        btnSelect[0].style.background = 'green'
+    }, 2000);
+    window.setTimeout(() => {
+        btnSelect[1].style.background = 'blue';
+    }, 3000);
+    window.setTimeout(() => {
+        btnSelect[2].style.background = 'orange'
+    }, 4000);
+})
+
+
+
+
