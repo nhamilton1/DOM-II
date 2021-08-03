@@ -104,3 +104,34 @@ window.addEventListener('load', (event) => {
 
 
 
+// Implementing select
+
+const footerSelect = document.createElement('p')
+document.querySelector('.footer').appendChild(footerSelect)
+footerSelect.classList.add('select')
+console.log(footerSelect)
+
+function logSelection(event) {
+    const select = document.querySelector('select');
+    const selection = event.target.input.substring(event.target.selectionStart, event.target.selectionEnd);
+    select.textContent = `You selected: ${selection}`
+    footerSelect.textContent = `You selected: ${selection}`
+}
+
+const input = document.querySelector('.footer p')
+console.log(input)
+footerSelect.addEventListener('select', logSelection)
+
+
+
+
+// Change event
+const selectEle = document.querySelector('.vacation');
+console.log(selectEle)
+
+function changeFunc(event) {
+    const select = document.querySelector('.select');
+    select.textContent = `You picked a ${event.target.value}!!`;
+}
+
+selectEle.addEventListener('change', changeFunc)
