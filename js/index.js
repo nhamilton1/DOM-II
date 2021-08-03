@@ -1,5 +1,7 @@
 // Your code goes here
 
+const { compareDesc } = require("date-fns")
+
 //LOGO TEXT CHANGER
 const logoHead = document.querySelector('.logo-heading')
 
@@ -46,7 +48,7 @@ document.addEventListener('keydown', function(event) {
 })
 
 
-//USING ZOOM ON IMG-CONTENT
+//USING WHEEL ON IMG-CONTENT
 const imgZoom = document.querySelector('.img-content')
 console.log(imgZoom)
 let scale = 1;
@@ -55,4 +57,28 @@ imgZoom.addEventListener('wheel', function(event) {
     scale += event.deltaY * -0.001;
     scale = Math.min(Math.max(.0125, scale), 6);
     imgZoom.style.transform = `scale(${scale})`;
+})
+
+
+// USING DBCLICK
+const inverseContentSection = document.querySelector('.inverse-content')
+console.log(inverseContentSection)
+
+inverseContentSection.addEventListener('dblclick', function (event) {
+    inverseContentSection.classList.toggle('large')
+})
+
+
+// Trying to use focus
+const navFocus = document.querySelector('.nav')
+console.log(navFocus)
+
+navFocus.addEventListener('focusin', (event) => {
+    event.target.style.background = 'black';
+    event.target.style.color = 'white';
+})
+
+navFocus.addEventListener('focusout', (event) => {
+    event.target.style.background = '';
+    event.target.style.color = ''
 })
