@@ -142,7 +142,7 @@ selectEle.addEventListener('change', changeFunc)
 // textarea .onselect = logSelection;
 
 
-
+//DRAG AND DROP
 const draggableElement = document.querySelector('#myDraggableElement');
 
 draggableElement.addEventListener('dragstart', event => {
@@ -197,7 +197,6 @@ for (const dropZone of document.querySelectorAll('.drop-zone')) {
 
 
 //Trying out stopPropagation
-
 const box = document.querySelector('.destination')
 const myBtn = document.querySelector('.btn')
 
@@ -210,3 +209,6 @@ myBtn.addEventListener('click', function (e) {
     e.stopPropagation();
     console.log('the button was pressed')
 })
+
+
+
