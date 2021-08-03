@@ -5,10 +5,12 @@ const logoHead = document.querySelector('.logo-heading')
 
 logoHead.addEventListener('mouseover', function(event) {
     logoHead.classList.add('logoHeadChange')
+    console.log(event)
 })
 
 logoHead.addEventListener('mouseleave', function(event) {
     logoHead.classList.remove('logoHeadChange')
+    console.log(event)
 })
 
 
@@ -64,6 +66,7 @@ console.log(inverseContentSection)
 
 inverseContentSection.addEventListener('dblclick', function (event) {
     inverseContentSection.classList.toggle('large')
+    console.log(event)
 })
 
 
@@ -97,12 +100,8 @@ window.addEventListener('load', (event) => {
     window.setTimeout(() => {
         btnSelect[2].style.background = 'orange'
     }, 4000);
+    console.log(event)
 })
-
-
-
-
-
 
 
 // Change event
@@ -195,3 +194,19 @@ for (const dropZone of document.querySelectorAll('.drop-zone')) {
         
     })
 }
+
+
+//Trying out stopPropagation
+
+const box = document.querySelector('.destination')
+const myBtn = document.querySelector('.btn')
+
+box.addEventListener('click', function() {
+    this.style.backgroundColor = 'red'
+})
+
+myBtn.addEventListener('click', function (e) {
+    myBtn.style.backgroundColor = 'red'
+    e.stopPropagation();
+    console.log('the button was pressed')
+})
