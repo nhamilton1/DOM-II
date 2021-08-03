@@ -45,3 +45,14 @@ document.addEventListener('keydown', function(event) {
     }
 })
 
+
+//USING ZOOM ON IMG-CONTENT
+const imgZoom = document.querySelector('.img-content')
+console.log(imgZoom)
+let scale = 1;
+imgZoom.addEventListener('wheel', function(event) {
+    event.preventDefault(); // got this from mdn
+    scale += event.deltaY * -0.001;
+    scale = Math.min(Math.max(.0125, scale), 6);
+    imgZoom.style.transform = `scale(${scale})`;
+})
